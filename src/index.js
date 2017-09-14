@@ -13,7 +13,12 @@ $(".container").text(`${getLoadMsg()}`);
  */
 const getMovies = require('./getMovies.js');
 
-addEventListener(){
+document.getElementById("yes").addEventListener("click", getMovies);
+
+function getMovies() {
+    document.getElementById("movies")();
+};
+
 
 getMovies().then((movies) => {
     // console.log('Here are all the movies:');
