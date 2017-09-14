@@ -7,14 +7,14 @@ sayHello('World');
 import getLoadMsg from "./loading";
 
 
-$('#inputs').hide();
-$(".container").text(`${getLoadMsg()}`);
+// $('#inputs').hide();
+// $(".container").text(`${getLoadMsg()}`);
 /**
  * require style imports
  */
 const getMovies = require('./getMovies.js');
 
-document.getElementById(0).addEventListener("click", function () {
+document.getElementById('yes').addEventListener("click", function () {
 getLoadMsg()
 });
 
