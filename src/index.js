@@ -14,18 +14,30 @@ import getLoadMsg from "./loading";
  */
 const getMovies = require('./getMovies.js');
 const addMovie = require('./addMovie.js');
+const deleteMovie = require('./deleteMovie.js');
+
 document.getElementById('yes').addEventListener("click", function () {
     getMovies().then((movies) => {
         console.log('Here are all the movies: ');
         let movie = "";
-        movies.forEach(({title, rating}) => {
+        movies.forEach(({id, title, rating}) => {
             movie += (`<tr>
+            <td>${id}</td>
             <td>${title}</td>
             <td>${rating}</td>
-            
+            <td><button class = 'delete'>Delete</button></td>
+
         </tr>`);
         });
 $(".container").hide();
+
+$("#movieTable").on('click','.delete',function(){
+    let $button = $(this);
+    deleteMovie({id:$button.parent().parent().children().first().html()}).then(function(){
+        $button.parent().parent().remove();
+    });
+   //console.log($(this).parent().parent().children().first().html())
+});
 
 $(".movieContainer").removeClass("hidden");
         $("#movieTable").html('').append(movie);
@@ -42,8 +54,10 @@ let title = $("#addMovie").val();
 let rating = $("#addRating").val();
     addMovie({title,rating}).then((movie) =>{
         let movieName = (`<tr>
+            <td>${movie.id}</td>
             <td>${movie.title}</td>
             <td>${movie.rating}</td>
+            <td><button class = 'delete'>Delete</button></td>
         </tr>`);
         $("#movieTable").append(movieName);
     })
