@@ -1,8 +1,8 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
+      "title": "Grandma's Boy",
+      "rating": "6",
       "id": 1
     },
     {
@@ -19,11 +19,6 @@
       "title": "Predator",
       "rating": "6",
       "id": 4
-    },
-    {
-      "title": "waterboy",
-      "rating": "4",
-      "id": 5
     },
     {
       "title": "waterboy",

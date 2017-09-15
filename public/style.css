@@ -26,6 +26,12 @@ h1 {
     /*padding-top: 15%;*/
     padding-right:30%;
 }
+#add{
+    text-align: center;
+}
+#rankhead{
+    text-align: center;
+}
 /*.loader {*/
     /*border: 16px*/
 /*}*/
