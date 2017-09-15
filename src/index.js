@@ -18,11 +18,11 @@ document.getElementById('yes').addEventListener("click", function () {
     getMovies().then((movies) => {
         console.log('Here are all the movies: ');
         let movie = "";
-        movies.forEach(({title, rating, id}) => {
+        movies.forEach(({title, rating}) => {
             movie += (`<tr>
             <td>${title}</td>
             <td>${rating}</td>
-            <td>${id}</td>
+            
         </tr>`);
         });
 $(".container").hide();
@@ -44,7 +44,6 @@ let rating = $("#addRating").val();
         let movieName = (`<tr>
             <td>${movie.title}</td>
             <td>${movie.rating}</td>
-            <td>${movie.id}</td>
         </tr>`);
         $("#movieTable").append(movieName);
     })
