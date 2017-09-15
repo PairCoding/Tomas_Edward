@@ -13,7 +13,7 @@ import getLoadMsg from "./loading";
  * require style imports
  */
 const getMovies = require('./getMovies.js');
-
+const addMovie = require('./addMovie.js');
 document.getElementById('yes').addEventListener("click", function () {
     getMovies().then((movies) => {
         console.log('Here are all the movies: ');
@@ -25,6 +25,8 @@ document.getElementById('yes').addEventListener("click", function () {
             <td>${id}</td>
         </tr>`);
         });
+$(".container").hide();
+
 $(".movieContainer").removeClass("hidden");
         $("#movieTable").html('').append(movie);
     }).catch((error) => {
@@ -34,6 +36,19 @@ $(".movieContainer").removeClass("hidden");
 console.log("click listener")
 });
 
+document.getElementById('movieButton').addEventListener("click",function(e){
+    e.preventDefault();
+let title = $("#addMovie").val();
+let rating = $("#addRating").val();
+    addMovie({title,rating}).then((movie) =>{
+        let movieName = (`<tr>
+            <td>${movie.title}</td>
+            <td>${movie.rating}</td>
+            <td>${movie.id}</td>
+        </tr>`);
+        $("#movieTable").append(movieName);
+    })
+});
 
 
     // $('#inputs').show();
