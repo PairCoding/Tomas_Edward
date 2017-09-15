@@ -19,10 +19,14 @@ document.getElementById('yes').addEventListener("click", function () {
         console.log('Here are all the movies: ');
         let movie = "";
         movies.forEach(({title, rating, id}) => {
-            movie += (`id#${id} - ${title} - rating: ${rating}`);
+            movie += (`<tr>
+            <td>${title}</td>
+            <td>${rating}</td>
+            <td>${id}</td>
+        </tr>`);
         });
-
-        $(".container").html('').append(movie);
+$(".movieContainer").removeClass("hidden");
+        $("#movieTable").html('').append(movie);
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
